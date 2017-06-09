@@ -5,16 +5,29 @@ import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import reducer from './Reducer';
 
-import People from '../people';
+import { people } from '../people';
 
 const store = createStore(
-    (() => null),
+    reducer,
     applyMiddleware(thunk)
 );
 
 const Navigator = StackNavigator({
   People: {
-    screen: People
+    screen: people,
+    navigationOptions: ({navigation}) => ({
+      title: 'People',
+      headerStyle: {
+        backgroundColor: 'black'
+      },
+      headerTitleStyle: {
+        color: 'yellow',
+        fontSize: 22
+      },
+      headerTintColor: {
+        color: 'white'
+      }
+    })
   }
 });
 
