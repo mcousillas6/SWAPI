@@ -6,6 +6,7 @@ import { StackNavigator } from 'react-navigation';
 import reducer from './Reducer';
 
 import People from '../people';
+import Menu from '../menu';
 
 const store = createStore(
     (() => null),
@@ -13,6 +14,9 @@ const store = createStore(
 );
 
 const Navigator = StackNavigator({
+  Menu: {
+    screen: Menu
+  },
   People: {
     screen: People
   }
